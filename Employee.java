@@ -4,7 +4,7 @@ package tree;
 /**
  * The entity we're storing in our node
  */
-
+// jeff is great
 public class Employee implements Comparable<Employee> {
 	
 	private String name;
