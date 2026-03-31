@@ -1,4 +1,4 @@
-package tree;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class OrgChartImpl implements OrgChart{
 	public void clear() {
 		GenericTreeNode<Employee> rootEmployee = nodes.get(0);
 		if (nodes == null) {
-			return null;
+			return;
 		}
 		nodes.clear();
 	}
@@ -40,6 +40,11 @@ public class OrgChartImpl implements OrgChart{
 	}
 	
 	public void showOrgChartBreadthFirst() {
+		
+	}
+	@Override
+	public void removeEmployee(Employee firedPerson) {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -1,4 +1,3 @@
-package tree;
 
 public interface OrgChart {
 	public void addRoot(Employee e); 
