@@ -2,6 +2,8 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
+import java.util.LinkedList;
 
 public class OrgChartImpl implements OrgChart{
 
@@ -47,19 +49,38 @@ public class OrgChartImpl implements OrgChart{
 	}
 	
 	public void showOrgChartBreadthFirst() {
-		if (nodes.isEmpty())
+		if (this.nodes.isEmpty())
 			return;
 		
+		Queue<GenericTreeNode<Employee>> queue = new LinkedList<>();
+		queue.offer(this.nodes.get(0));
 		
-	}
+		while (!queue.isEmpty()) {
+			GenericTreeNode<Employee> current = queue.poll();
+			System.out.print(current.data + ", ");
+			
+			for (GenericTreeNode<Employee> child : current.children) {
+				queue.offer(child);
+			}
+		}
+		
+	}//1111
 	@Override
-	public void removeEmployee(Employee firedPerson) {
-		// TODO Auto-generated method stub
-		if (nodes.isEmpty())
-			return;
-		GenericTreeNode<Employee> root = nodes.get(0);
-		
-	}
+   public void removeEmployee(Employee firedPerson) {
+      if (!this.nodes.isEmpty()) {
+         GenericTreeNode<Employee> root = (GenericTreeNode)this.nodes.get(0);
 
+         for(GenericTreeNode<Employee> parent : this.nodes) {
+            for(GenericTreeNode<Employee> child : parent.children) { 
+               if (((Employee)child.data).equals(firedPerson)) { 
 
+                  parent.children.addAll(child.children); 
+                  parent.children.remove(child); 
+                  this.nodes.remove(child); 
+                  return; 
+               }
+            }
+         }
+      }
+   }
 }
