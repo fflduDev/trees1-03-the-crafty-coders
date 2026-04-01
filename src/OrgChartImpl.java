@@ -28,23 +28,36 @@ public class OrgChartImpl implements OrgChart{
 	}
 	
 	public void clear() {
-		GenericTreeNode<Employee> rootEmployee = nodes.get(0);
-		if (nodes == null) {
-			return;
-		}
 		nodes.clear();
 	}
 
 	public void showOrgChartDepthFirst() {
-		return;
+		if (nodes.isEmpty()) {
+			return;
+		}
+		depthFirst(nodes.get(0));
+		
+	}
+	
+	public void depthFirst(GenericTreeNode<Employee> node) {
+		System.out.print(node.data + ", ");
+		for (GenericTreeNode<Employee> child : node.children) {
+			depthFirst(child);
+		}
 	}
 	
 	public void showOrgChartBreadthFirst() {
+		if (nodes.isEmpty())
+			return;
+		
 		
 	}
 	@Override
 	public void removeEmployee(Employee firedPerson) {
 		// TODO Auto-generated method stub
+		if (nodes.isEmpty())
+			return;
+		GenericTreeNode<Employee> root = nodes.get(0);
 		
 	}
 
