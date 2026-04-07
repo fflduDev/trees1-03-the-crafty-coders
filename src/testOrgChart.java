@@ -33,16 +33,18 @@ public class testOrgChart {
 		
 		// show it depth first
 		company.showOrgChartDepthFirst();
-		
+		System.out.println("");
 		// show breadth first
 		company.showOrgChartBreadthFirst();
-		
+		System.out.println("");
 		// and remove some people
 		company.removeEmployee(e4);
 		company.removeEmployee(e5);
 		
 		// show it depth first
 		company.showOrgChartDepthFirst();
+		
+		System.out.println("");
 		
 		// show breadth first
 		company.showOrgChartBreadthFirst();

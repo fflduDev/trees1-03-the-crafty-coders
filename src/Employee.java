@@ -46,11 +46,17 @@ public class Employee implements Comparable<Employee> {
 		this.position = position;
 	}
 
-	public boolean equals(Employee e) {
-		if (this.name.equals(e.name) && this.id.equals(e.id) && this.position.equals(e.position))
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
 			return true;
-		return false;
+		if (o == null || getClass() != o.getClass()) 
+			return false;
+		Employee e = (Employee) o;
+		return (this.name.equals(e.name) && this.id.equals(e.id) && this.position.equals(e.position));
+		
 	}
+	
 
 	public String toString() {
 		return name + " " + id + " " + position;
